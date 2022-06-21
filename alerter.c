@@ -4,6 +4,7 @@
 int alertFailureCount = 0;
 
 #define PRODUCTION_ON   1
+#define PRODUCTION_OFF  0
 #define PRODUCTION_ENABLED PRODUCTION_ON
 
 int networkAlertStub(float celcius) {
