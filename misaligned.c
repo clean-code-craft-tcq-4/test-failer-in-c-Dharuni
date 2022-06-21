@@ -30,7 +30,7 @@ int printColorMap() {
 
 int GetPairNumberFromColor(const ColorPair* colorPair) {
     return colorPair->majorColor * numberOfMinorColors +
-            colorPair->minorColor + 1;
+            colorPair->minorColor;
 }
 
 void testPairToNumber(MajorColor major, MinorColor minor, int expectedPairNumber)
