@@ -8,22 +8,6 @@ const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
 int numberOfMajorColors = sizeof(majorColor) / sizeof(majorColor[0]);
 int numberOfMinorColors =  sizeof(minorColor) / sizeof(minorColor[0]);
 
-void ColorPairToString(const ColorPair* colorPair, char* buffer) {
-    sprintf(buffer, "%s %s",
-        majorColor[colorPair->majorColor],
-        minorColor[colorPair->minorColor]);
-}
-
-ColorPair GetColorFromPairNumber(int pairNumber) {
-    ColorPair colorPair;
-    int zeroBasedPairNumber = pairNumber - 1;
-    colorPair.majorColor = 
-        (MajorColor)(zeroBasedPairNumber / numberOfMinorColors);
-    colorPair.minorColor =
-        (MinorColor)(zeroBasedPairNumber % numberOfMinorColors);
-    return colorPair;
-}
-
 int GetPairNumberFromColor(const ColorPair* colorPair) {
     return colorPair->majorColor * numberOfMinorColors +
             colorPair->minorColor + 1;
@@ -43,7 +27,7 @@ void testPairToNumber(
 
 int printColorMap() {
     
-    int majorColorCount,minorColorCount;
+    int majorColorCount = 0,minorColorCount = 0;
     ColorPair colorPairReference;
     char colorPairManual[MAX_COLORPAIR];
     printf("\n Color Coding Reference Manual\n");
@@ -56,7 +40,7 @@ int printColorMap() {
             colorPairReference.minorColor = (MinorColor)minorColorCount;
             int pairNumberReference = GetPairNumberFromColor(&colorPairReference);
             ColorPairToString(&colorPairReference, colorPairManual);
-            printf(" %s\t%d\n", colorPairManual,pairNumberReference );
+            printf("%d | %s | %s\n", pairNumberReference, majorColor[majorColorCount], minorColor[minorColorCount]);
 
         }
     }
