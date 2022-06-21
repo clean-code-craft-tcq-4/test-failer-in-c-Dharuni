@@ -29,7 +29,6 @@ int printColorMap() {
     
     int majorColorCount = 0,minorColorCount = 0;
     ColorPair colorPairReference;
-    char colorPairManual[MAX_COLORPAIR];
     printf("\n Color Coding Reference Manual\n");
     printf("Major Color | \t Minor Color | \t Pair Number \n");
     for(majorColorCount=0;majorColorCount<numberOfMajorColors;majorColorCount++)
