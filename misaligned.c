@@ -33,10 +33,7 @@ int GetPairNumberFromColor(const ColorPair* colorPair) {
             colorPair->minorColor + 1;
 }
 
-void testPairToNumber(
-    MajorColor major,
-    MinorColor minor,
-    int expectedPairNumber)
+void testPairToNumber(MajorColor major, MinorColor minor, int expectedPairNumber)
 {
     ColorPair colorPair;
     colorPair.majorColor = major;
