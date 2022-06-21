@@ -1,8 +1,37 @@
 #include <stdio.h>
 #include <assert.h>
+#include "misaligned.h"
 
 const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
 const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
+
+void ColorPairToString(const ColorPair* colorPair, char* buffer) {
+    sprintf(buffer, "%s %s",
+        majorColor[colorPair->majorColor],
+        minorColor[colorPair->minorColor]);
+}
+
+ColorPair GetColorFromPairNumber(int pairNumber) {
+    ColorPair colorPair;
+    int zeroBasedPairNumber = pairNumber - 1;
+    colorPair.majorColor = 
+        (MajorColor)(zeroBasedPairNumber / numberOfMinorColors);
+    colorPair.minorColor =
+        (MinorColor)(zeroBasedPairNumber % numberOfMinorColors);
+    return colorPair;
+}
+
+void testPairToNumber(
+    MajorColor major,
+    MinorColor minor,
+    int expectedPairNumber)
+{
+    ColorPair colorPair;
+    colorPair.majorColor = major;
+    colorPair.minorColor = minor;
+    int pairNumber = GetPairNumberFromColor(&colorPair);
+    assert(pairNumber == expectedPairNumber);
+}
 
 int printColorMap() {
 
