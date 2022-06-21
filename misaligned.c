@@ -62,6 +62,7 @@ int printColorMap() {
 
         }
     }
+    return majorColorIndex * minorColorIndex;
 }
 
 int main() {
