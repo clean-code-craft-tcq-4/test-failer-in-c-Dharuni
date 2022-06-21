@@ -39,7 +39,6 @@ int printColorMap() {
             colorPairReference.majorColor = (MajorColor)majorColorCount;
             colorPairReference.minorColor = (MinorColor)minorColorCount;
             int pairNumberReference = GetPairNumberFromColor(&colorPairReference);
-            ColorPairToString(&colorPairReference, colorPairManual);
             printf("%d | %s | %s\n", pairNumberReference, majorColor[majorColorCount], minorColor[minorColorCount]);
 
         }
