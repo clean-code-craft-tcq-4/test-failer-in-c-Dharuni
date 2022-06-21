@@ -12,3 +12,4 @@ typedef struct {
 int 	printColorMap			(void);
 int 	GetPairNumberFromColor	(const ColorPair* colorPair);
 void 	testPairToNumber		(MajorColor major, MinorColor minor, int expectedPairNumber);
+int GetPairNumberFromColor(const ColorPair* colorPair);
