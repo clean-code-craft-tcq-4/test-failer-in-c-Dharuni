@@ -8,23 +8,6 @@ const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
 int numberOfMajorColors = sizeof(majorColor) / sizeof(majorColor[0]);
 int numberOfMinorColors =  sizeof(minorColor) / sizeof(minorColor[0]);
 
-int GetPairNumberFromColor(const ColorPair* colorPair) {
-    return colorPair->majorColor * numberOfMinorColors +
-            colorPair->minorColor + 1;
-}
-
-void testPairToNumber(
-    MajorColor major,
-    MinorColor minor,
-    int expectedPairNumber)
-{
-    ColorPair colorPair;
-    colorPair.majorColor = major;
-    colorPair.minorColor = minor;
-    int pairNumber = GetPairNumberFromColor(&colorPair);
-    assert(pairNumber == expectedPairNumber);
-}
-
 int printColorMap() {
     
     int majorColorCount = 0,minorColorCount = 0;
@@ -43,6 +26,23 @@ int printColorMap() {
         }
     }
     return majorColorCount * minorColorCount;
+}
+
+int GetPairNumberFromColor(const ColorPair* colorPair) {
+    return colorPair->majorColor * numberOfMinorColors +
+            colorPair->minorColor + 1;
+}
+
+void testPairToNumber(
+    MajorColor major,
+    MinorColor minor,
+    int expectedPairNumber)
+{
+    ColorPair colorPair;
+    colorPair.majorColor = major;
+    colorPair.minorColor = minor;
+    int pairNumber = GetPairNumberFromColor(&colorPair);
+    assert(pairNumber == expectedPairNumber);
 }
 
 int main() {
