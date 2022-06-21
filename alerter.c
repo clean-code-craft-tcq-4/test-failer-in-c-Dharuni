@@ -5,7 +5,7 @@ int alertFailureCount = 0;
 
 #define PRODUCTION_ON   1
 #define PRODUCTION_OFF  0
-#define PRODUCTION_ENABLED PRODUCTION_ON
+#define PRODUCTION_ENABLED PRODUCTION_OFF
 
 int networkAlertStub(float celcius) {
     printf("ALERT: Temperature is %.1f celcius.\n", celcius);
