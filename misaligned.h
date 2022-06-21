@@ -9,6 +9,9 @@ typedef struct {
 
 #define MAX_COLORPAIR 16
 
+
+int numberOfMajorColors = sizeof(MajorColorNames) / sizeof(MajorColorNames[0]);
+
 int 	printColorMap			(void);
 int 	GetPairNumberFromColor	(const ColorPair* colorPair);
 void 	testPairToNumber		(MajorColor major, MinorColor minor, int expectedPairNumber);
