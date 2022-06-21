@@ -7,6 +7,8 @@ typedef struct {
     MinorColor minorColor;
 }ColorPair;
 
+#define MAX_COLORPAIR 16
+
 int 	printColorMap			(void);
 int 	GetPairNumberFromColor	(const ColorPair* colorPair);
 void 	testPairToNumber		(MajorColor major, MinorColor minor, int expectedPairNumber);
