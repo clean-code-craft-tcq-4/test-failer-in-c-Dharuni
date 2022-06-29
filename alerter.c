@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
+#include "alerter.h"
 
 int alertFailureCount = 0;
 
@@ -8,11 +9,17 @@ int alertFailureCount = 0;
 #define PRODUCTION_ENABLED PRODUCTION_OFF
 
 int networkAlertStub(float celcius) {
+    int returnValue = 200;
     printf("ALERT: Temperature is %.1f celcius.\n", celcius);
-    // Return 200 for ok
-    // Return 500 for not-ok
-    // stub always succeeds and returns 200
-    return 200;
+    if(celsius > THRESHOLD_TEMPERATURE)
+    {
+        returnValue = 500;
+    }
+    else
+    {
+        returnValue = 200;
+    }
+    return returnValue;
 }
 
 #if(PRODUCTION_ENABLED != PRODUCTION_ON)
